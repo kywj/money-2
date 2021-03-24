@@ -5,30 +5,37 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+import styled from "styled-components";
 import Money from "views/Money";
 import NoMatch from "views/NoMatch";
 import Statistics from "views/Statistics";
 import Tag from "views/Tags";
 
+const AppWrapper = styled.div`
+  color: #333;
+`;
+
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/tags">
-          <Tag />
-        </Route>
-        <Route path="/money">
-          <Money />
-        </Route>
-        <Route path="/statistics">
-          <Statistics />
-        </Route>
-        <Redirect exact from="/" to="/money" />
-        <Route path="*">
-          <NoMatch />
-        </Route>
-      </Switch>
-    </Router>
+    <AppWrapper>
+      <Router>
+        <Switch>
+          <Route path="/tags">
+            <Tag />
+          </Route>
+          <Route path="/money">
+            <Money />
+          </Route>
+          <Route path="/statistics">
+            <Statistics />
+          </Route>
+          <Redirect exact from="/" to="/money" />
+          <Route path="*">
+            <NoMatch />
+          </Route>
+        </Switch>
+      </Router>
+    </AppWrapper>
   );
 }
 
