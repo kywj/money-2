@@ -10,7 +10,6 @@ const generateOutput = (text: string, output = "0") => {
     case "7":
     case "8":
     case "9":
-    case "0":
       if (output === "0") {
         return text;
       } else {
