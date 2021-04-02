@@ -33,17 +33,13 @@ const Button = styled.button`
 
 function Tag() {
   const { tags, addTag } = useTags();
-  console.log("use tags");
-
   return (
     <Layout>
       <TagList>
         {tags.map((tag) => (
           <li key={tag.id}>
             <Link to={"/tags/" + tag.id}>
-              <span className="oneLine">
-                {tag.id}: {tag.name}
-              </span>
+              <span className="oneLine">{tag.name}</span>
               <Icon name="right" />
             </Link>
           </li>
