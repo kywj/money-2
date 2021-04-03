@@ -27,9 +27,10 @@ function Money() {
     setSelected({ ...selected, ...obj });
   };
   const submit = () => {
-    addRecord(selected);
-    alert("已保存");
-    setSelected(defaultFormData);
+    if (addRecord(selected)) {
+      alert("已保存");
+      setSelected(defaultFormData);
+    }
   };
   return (
     <MyLayout>
