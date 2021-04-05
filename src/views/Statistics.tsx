@@ -36,13 +36,12 @@ function Statistics() {
   const hash: { [K: string]: RecordItem[] } = {}; // {'2021-04-05': [item, item], '2021-04-06': [item, item, item, item]}
   const selectedRecords = records.filter((r) => r.category === category);
 
-  selectedRecords.map((r) => {
+  selectedRecords.forEach((r) => {
     const key = day(r.createdAt).format("YYYY年MM月DD日");
     if (!(key in hash)) {
       hash[key] = [];
     }
     hash[key].push(r);
-    return hash;
   });
 
   const array = Object.entries(hash).sort((a, b) => {
@@ -60,7 +59,7 @@ function Statistics() {
         />
       </CategoryWrapper>
       {array.map(([date, records]) => (
-        <div>
+        <div key={date}>
           <Header>{date}</Header>
           <div>
             {records.map((r) => {
